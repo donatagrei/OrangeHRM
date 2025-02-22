@@ -40,11 +40,11 @@ public class CandidateFormTest extends BaseTest {
         recruitmentPage.scrollTo(("//button[text()=\" Save \"]"));
         recruitmentPage.clickSaveButton();
 
-        //Verifying that error messages contain the expected text
+        //Verifying error messages contain the expected text
         List<String> actualErrorMessages = recruitmentPage.getErrorMessagesList();
         assertThat(actualErrorMessages).allSatisfy(item -> assertThat(item).contains("Required"));
 
-        //Ensuring error messages are displayed in the appropriate locations
+        //Ensuring error messages are displayed in the expected locations
         Assertions.assertTrue(recruitmentPage.areErrorsUnderTheRightFields());
     }
 
@@ -55,6 +55,7 @@ public class CandidateFormTest extends BaseTest {
         recruitmentPage.scrollTo(("//button[text()=\" Cancel \"]"));
         recruitmentPage.clickCancelButton();
 
+        //Verifying the user is navigated to correct webpage
         Assertions.assertTrue(recruitmentPage.isCurrentURLContains("/web/index.php/recruitment/viewCandidates"));
     }
 
@@ -66,34 +67,11 @@ public class CandidateFormTest extends BaseTest {
         recruitmentPage.typeEmail(wrongEmail);
         recruitmentPage.clickSaveButton();
 
+        //Verifying error message contains the expected text
         Assertions.assertEquals("Expected format: admin@example.com", recruitmentPage.getEmailErrorMessageText());
+        //Ensuring error message is displayed in the expected location
         Assertions.assertTrue(recruitmentPage.isErrorUnderEmailField());
     }
-
-
-    @Test
-    public void savingCandidateInformationTest() {
-        RecruitmentPage recruitmentPage = new RecruitmentPage(driver);
-        recruitmentPage.typeFirstName(Generator.generateFirstName());
-        recruitmentPage.typeLastName(Generator.generateLastName());
-        recruitmentPage.selectVacancy();
-        recruitmentPage.typeEmail(Generator.generateEmail());
-        recruitmentPage.typePhoneNumber(Generator.generatePhoneNumber());
-        recruitmentPage.addFile();
-        recruitmentPage.scrollTo(("//button[text()=\" Cancel \"]"));
-        recruitmentPage.typeKeywords(Generator.generateKeywords());
-        recruitmentPage.selectDate();
-        recruitmentPage.typeNotes(Generator.generateNotes());
-        recruitmentPage.giveConsentToKeepData();
-        recruitmentPage.clickSaveButton();
-
-        
-
-    }
-
-    // 6-ame teste assertus galima rasyti naudojant isEnabled()
-
-
-
+    
 }
 
