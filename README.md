@@ -1,6 +1,6 @@
 # OrangeHRM Automated UI Tests
 
-This repository contains **automated UI tests** written in **Java**, using **Selenium WebDriver** and **JUnit 5** for testing the [**OrangeHRM**]([https://themes.woocommerce.com/homestore/](https://opensource-demo.orange) HR management web application.
+This repository contains **automated UI tests** written in **Java**, using **Selenium WebDriver** and **JUnit 5** for testing the [**OrangeHRM**](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login) HR management web application.
 
 ## Overview
 
